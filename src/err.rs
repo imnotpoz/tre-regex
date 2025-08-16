@@ -39,7 +39,7 @@ pub enum ErrorKind {
 }
 
 /// Error type returned in results
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct RegexError {
     /// Kind of error
     pub kind: ErrorKind,
