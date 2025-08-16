@@ -29,7 +29,7 @@ impl BindingErrorCode {
 /// Type of error: `Binding` (see [`BindingErrorCode`]), or `Tre`
 ///
 /// See the TRE documentation for more information on valid error codes for `Tre`.
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum ErrorKind {
     /// Binding-specific error
     Binding(BindingErrorCode),
