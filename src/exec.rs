@@ -2,6 +2,7 @@
 // See LICENSE file in the project root for full license text.
 
 use std::borrow::Cow;
+use std::ffi::c_char;
 use std::hint::unreachable_unchecked;
 
 use crate::{err::{BindingErrorCode, ErrorKind, RegexError, Result}, flags::RegexecFlags, tre, Regex};
@@ -169,7 +170,7 @@ impl Regex {
         let result = unsafe {
             tre::tre_regnexec(
                 compiled_reg_obj,
-                data.as_ptr().cast::<i8>(),
+                data.as_ptr().cast::<c_char>(),
                 data.len(),
                 nmatches,
                 match_vec.as_mut_ptr(),

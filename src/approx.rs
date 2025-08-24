@@ -2,7 +2,7 @@
 // See LICENSE file in the project root for full license text.
 
 use std::borrow::Cow;
-use std::ffi::c_int;
+use std::ffi::{c_char, c_int};
 use std::hint::unreachable_unchecked;
 
 use crate::{
@@ -372,7 +372,7 @@ impl Regex {
         let result = unsafe {
             tre::tre_reganexec(
                 compiled_reg_obj,
-                data.as_ptr().cast::<i8>(),
+                data.as_ptr().cast::<c_char>(),
                 data.len(),
                 &mut amatch,
                 *params.get(),
