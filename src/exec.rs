@@ -169,7 +169,7 @@ impl Regex {
         let result = unsafe {
             tre::tre_regnexec(
                 compiled_reg_obj,
-                data.as_ptr().cast::<i8>(),
+                data.as_ptr().cast::<u8>(),
                 data.len(),
                 nmatches,
                 match_vec.as_mut_ptr(),

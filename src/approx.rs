@@ -372,7 +372,7 @@ impl Regex {
         let result = unsafe {
             tre::tre_reganexec(
                 compiled_reg_obj,
-                data.as_ptr().cast::<i8>(),
+                data.as_ptr().cast::<u8>(),
                 data.len(),
                 &mut amatch,
                 *params.get(),
